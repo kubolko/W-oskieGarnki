@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,7 +9,9 @@ import 'Models/Dish.dart';
 import 'ViewModels/ViewModel.dart';
 
 class Polecane extends StatefulWidget {
+
   const Polecane({Key? key}) : super(key: key);
+
 
   @override
   _PolecaneState createState() => _PolecaneState();
@@ -16,24 +19,27 @@ class Polecane extends StatefulWidget {
 
 class _PolecaneState extends State<Polecane> {
   List dataList = [Dish];
+  List menu = [Dish];
+  final CollectionReference collectionRef =
+  FirebaseFirestore.instance.collection("menu");
+  // Future<List<Dish>?> getData() async {
+  //   List<Dish>? menu;
+  //   String link =
+  //       "https://firestore.googleapis.com/v1/projects/wloskiegarnki/databases/(default)/documents/menu";
+  //   var res = await http
+  //       .get(Uri.parse(link), headers: {"Accept": "application/json"});
+  //   print(res.body);
+  //   if (res.statusCode == 200) {
+  //     var data = json.decode(res.body);
+  //     var rest = data["documents"] as List;
+  //     print(rest);
+  //     menu =
+  //         rest.map<Dish>((json) => Dish.fromJson(json)).cast<Dish>().toList();
+  //   }
+  //   print("List Size: ${menu?.length}");
+  //   return menu;
+  // }
 
-  Future<List<Dish>?> getData() async {
-    List<Dish>? menu;
-    String link =
-        "https://firestore.googleapis.com/v1/projects/wloskiegarnki/databases/(default)/documents/menu";
-    var res = await http
-        .get(Uri.parse(link), headers: {"Accept": "application/json"});
-    print(res.body);
-    if (res.statusCode == 200) {
-      var data = json.decode(res.body);
-      var rest = data["documents"] as List;
-      print(rest);
-      menu =
-          rest.map<Dish>((json) => Dish.fromJson(json)).cast<Dish>().toList();
-    }
-    print("List Size: ${menu?.length}");
-    return menu;
-  }
 
   Widget listViewWidget(List<Dish> dish) {
     return Container(
@@ -91,11 +97,11 @@ class _PolecaneState extends State<Polecane> {
             );
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            dataList = snapshot.data as List;
+            menu = snapshot.data as List;
 
-            dataList = dishFromJson(jsonEncode(snapshot.data)) as List;
-            print(dataList);
-            return buildItems(dataList);
+             menu = dishFromJson(jsonEncode(snapshot.data)) as List;
+             print(menu);
+            return buildItems(menu);
           }
           return const Center(child: CircularProgressIndicator());
         },
