@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.0-69.2.beta <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -37,6 +37,8 @@ dependencies:
   hexcolor: ^2.0.6
   firebase_core: ^1.17.0
   cloud_firestore: ^3.1.16
+  carousel_slider: ^4.1.1
+  http: ^0.13.4
 
 
 dev_dependencies:
