@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:woski_garnek/ViewModels/ViewModel.dart';
 import 'package:woski_garnek/kontakt.dart';
 import 'package:woski_garnek/menu.dart';
 import 'package:woski_garnek/o_nas.dart';
-import 'package:woski_garnek/polecane.dart';
 import 'package:woski_garnek/zamowodbierz.dart';
 import 'package:woski_garnek/zarezerwuj.dart';
 
+import '../Polecane2.dart';
 import '../lokalizacja.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -39,7 +38,7 @@ class MenuWidget extends StatelessWidget {
                     style: TextButton.styleFrom(
                         textStyle: Theme.of(context).textTheme.headlineMedium),
                     onPressed: () {
-                      ViewModel.addComments(dish: "Kebab", comment: "test");
+                      // ViewModel.addComments(dish: "Kebab", comment: "test");
 
                       // Navigator.push(
                       //   context,
@@ -57,7 +56,7 @@ class MenuWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Polecane()),
+                            builder: (context) => const Polecane2()),
                       );
                     },
                     child: Text('Polecane',
