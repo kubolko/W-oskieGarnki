@@ -36,11 +36,11 @@ class ViewModel {
     //creates a new doc with unique doc ID
     return collectionRef
         .add({
-      "comments": ["good"],
-      "dish": "Kebab",
-      "ingredients": ["a", "b", "c"],
-      "weight": 250
-    })
+          "comments": ["good"],
+          "dish": "Kebab",
+          "ingredients": ["a", "b", "c"],
+          "weight": 250
+        })
         .then((value) => debugPrint("User Added"))
         .catchError((error) => debugPrint("Failed to add user: $error"));
   }
@@ -64,12 +64,12 @@ class ViewModel {
   Future<void> addField() {
     return collectionRef
         .doc('MyDoc')
-    //will edit the doc if already available or will create a new doc with this given ID
+        //will edit the doc if already available or will create a new doc with this given ID
         .set(
-      {'role': "developer"},
-      SetOptions(merge: true),
-      // if set to 'false', then only these given fields will be added to that doc
-    )
+          {'role': "developer"},
+          SetOptions(merge: true),
+          // if set to 'false', then only these given fields will be added to that doc
+        )
         .then((value) => debugPrint("User Added"))
         .catchError((error) => debugPrint("Failed to add user: $error"));
   }
