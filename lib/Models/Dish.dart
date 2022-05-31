@@ -1,6 +1,6 @@
-// To parse this JSON data, do
-//
-//     final dish = dishFromJson(jsonString);
+// // To parse this JSON data, do
+// //
+// //     final dish = dishFromJson(jsonString);
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -42,10 +42,10 @@ Dish _dishFromJson(Map<String, dynamic> json) {
   return Dish(
     json['dish'] as String,
     description: json['description'] as String,
-    comments: json['comments'] as List<String>,
+    comments: json['comments'].cast<String>() as List<String>,
     weight: json['weight'] as int,
-    images: json['images'] as List<String>,
-    ingredients: json['ingredients'] as List<String>,
+    images: json['images'].cast<String>() as List<String>,
+    ingredients: json['ingredients'].cast<String>() as List<String>,
     isRecommended: json['isRecommended'] as bool,
   );
 }
