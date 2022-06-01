@@ -39,41 +39,47 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:woski_garnek/Models/Dish.dart';
 import 'package:woski_garnek/ViewModels/DataRepository.dart';
+import 'package:woski_garnek/Widgets/Footer.dart';
 import 'package:woski_garnek/Widgets/MenuCard.dart';
 
-class Polecane2 extends StatefulWidget {
-  const Polecane2({Key? key}) : super(key: key);
+import 'Widgets/MenuWidget.dart';
+
+class Polecane extends StatefulWidget {
+  const Polecane({Key? key}) : super(key: key);
 
   @override
-  _Polecane2State createState() => _Polecane2State();
+  _PolecaneState createState() => _PolecaneState();
 }
 
-class _Polecane2State extends State<Polecane2> {
+class _PolecaneState extends State<Polecane> {
   final DataRepository repository = DataRepository();
   final boldStyle =
       const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
-    return _buildHome(context);
+    return _buildPolecane(context);
   }
 
-  Widget _buildHome(BuildContext context) {
+  Widget _buildPolecane(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pets'),
-      ),
-      body: StreamBuilder<QuerySnapshot>(
-          stream: repository.getStream(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return LinearProgressIndicator();
+      appBar: null,
+      body: Column(
+        children: [
+          MenuWidget(
+            title: 'Polecane',
+            subTitle: 'Subtitle',
+          ),
+          Flexible(
+            child: StreamBuilder<QuerySnapshot>(
+                stream: repository.getStream(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) return const LinearProgressIndicator();
 
-            return _buildList(context, snapshot.data?.docs ?? []);
-          }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Add Pet',
-        child: const Icon(Icons.add),
+                  return _buildList(context, snapshot.data?.docs ?? []);
+                }),
+          ),
+        ],
       ),
     );
   }
@@ -88,9 +94,15 @@ class _Polecane2State extends State<Polecane2> {
   // }
 
   Widget _buildList(BuildContext context, List<DocumentSnapshot>? snapshot) {
+    final widgets =
+        snapshot!.map((data) => _buildListItem(context, data)).toList();
+    widgets.add(Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Footer(),
+    ));
     return ListView(
       padding: const EdgeInsets.only(top: 20.0),
-      children: snapshot!.map((data) => _buildListItem(context, data)).toList(),
+      children: widgets,
     );
   }
 

@@ -14,7 +14,10 @@ class Lokalizacja extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             verticalDirection: VerticalDirection.down,
             children: <Widget>[
-              MenuWidget(),
+              MenuWidget(
+                title: 'Lokalizacja',
+                subTitle: 'Subtitle',
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);

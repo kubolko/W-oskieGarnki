@@ -14,7 +14,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: null,
         body: Column(children: <Widget>[
-          MenuWidget(),
+          MenuWidget(
+            title: "Strona główna",
+            subTitle: 'Subtitle',
+          ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
