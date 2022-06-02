@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:woski_garnek/Polecane.dart';
+import 'package:woski_garnek/blog.dart';
+import 'package:woski_garnek/homepage.dart';
 import 'package:woski_garnek/kontakt.dart';
 import 'package:woski_garnek/menu.dart';
-import 'package:woski_garnek/o_nas.dart';
-import 'package:woski_garnek/zamowodbierz.dart';
+import 'package:woski_garnek/themes.dart';
 import 'package:woski_garnek/zarezerwuj.dart';
 
-import '../Polecane2.dart';
 import '../lokalizacja.dart';
 
 class MenuWidget extends StatelessWidget {
+  MenuWidget({super.key, required this.title, required this.subTitle});
+
+  final String title;
+  final String subTitle;
+  final TextStyle? passive = CustomTheme.lightTheme.textTheme.headlineMedium;
+  final TextStyle active = const TextStyle(
+      fontSize: 20,
+      fontFamily: 'Malgun',
+      fontWeight: FontWeight.normal,
+      color: Colors.amber);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,11 +30,11 @@ class MenuWidget extends StatelessWidget {
         verticalDirection: VerticalDirection.down,
         children: [
           Text(
-            "Big Title",
+            title,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           Text(
-            "Subtitle",
+            subTitle,
             style: Theme.of(context).textTheme.titleSmall,
           ),
           Container(
@@ -34,116 +46,197 @@ class MenuWidget extends StatelessWidget {
               child: Row(
                 children: [
                   const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      // ViewModel.addComments(dish: "Kebab", comment: "test");
-
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => MyHomePage()),
-                      // );
-                    },
-                    child: Text('Strona Główna',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
+                  if (title == "Strona główna") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: active),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyHomePage()),
+                        );
+                      },
+                      child: Text('Strona główna'),
+                    ),
+                  ],
+                  if (title != "Strona główna") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: passive),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyHomePage()),
+                        );
+                      },
+                      child: Text('Strona główna',
+                          style: Theme.of(context).textTheme.headlineMedium),
+                    ),
+                  ],
                   const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Polecane2()),
-                      );
-                    },
-                    child: Text('Polecane',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
+                  if (title == "Polecane") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: active),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Polecane()),
+                        );
+                      },
+                      child: Text('Polecane'),
+                    ),
+                  ],
+                  if (title != "Polecane") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: passive),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Polecane()),
+                        );
+                      },
+                      child: Text('Polecane',
+                          style: Theme.of(context).textTheme.headlineMedium),
+                    ),
+                  ],
                   const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ZamowOdbierz()),
-                      );
-                    },
-                    child: Text('Zamów/Odbierz',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
+                  if (title == "Zarezerwuj stolik") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: active),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ZarezerwujStolik()),
+                        );
+                      },
+                      child: Text('Zarezerwuj stolik'),
+                    ),
+                  ],
+                  if (title != "Zarezerwuj stolik") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: passive),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ZarezerwujStolik()),
+                        );
+                      },
+                      child: Text('Zarezerwuj stolik',
+                          style: Theme.of(context).textTheme.headlineMedium),
+                    ),
+                  ],
                   const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ZarezerwujStolik()),
-                      );
-                    },
-                    child: Text('Zarezerwuj stolik',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
+                  if (title == "Menu") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: active),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Menu()),
+                        );
+                      },
+                      child: Text('Menu'),
+                    ),
+                  ],
+                  if (title != "Menu") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: passive),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Menu()),
+                        );
+                      },
+                      child: Text('Menu',
+                          style: Theme.of(context).textTheme.headlineMedium),
+                    ),
+                  ],
                   const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const Menu()),
-                      );
-                    },
-                    child: Text('Menu',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
+                  if (title == "Lokalizacja") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: active),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Lokalizacja()),
+                        );
+                      },
+                      child: Text('Lokalizacja'),
+                    ),
+                  ],
+                  if (title != "Lokalizacja") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: passive),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Lokalizacja()),
+                        );
+                      },
+                      child: Text('Lokalizacja',
+                          style: Theme.of(context).textTheme.headlineMedium),
+                    ),
+                  ],
                   const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Lokalizacja()),
-                      );
-                    },
-                    child: Text('Lokalizacja',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
+                  if (title == "Blog") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: active),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Blog()),
+                        );
+                      },
+                      child: Text('Blog'),
+                    ),
+                  ],
+                  if (title != "Blog") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: passive),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Blog()),
+                        );
+                      },
+                      child: Text('Blog',
+                          style: Theme.of(context).textTheme.headlineMedium),
+                    ),
+                  ],
                   const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const ONas()),
-                      );
-                    },
-                    child: Text('O nas',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
-                  const Spacer(),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                        textStyle: Theme.of(context).textTheme.headlineMedium),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Kontakt()),
-                      );
-                    },
-                    child: Text('Kontakt',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ),
+                  if (title == "Kontakt") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: active),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Kontakt()),
+                        );
+                      },
+                      child: Text('Kontakt'),
+                    ),
+                  ],
+                  if (title != "Kontakt") ...[
+                    TextButton(
+                      style: TextButton.styleFrom(textStyle: passive),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Kontakt()),
+                        );
+                      },
+                      child: Text('Kontakt',
+                          style: Theme.of(context).textTheme.headlineMedium),
+                    ),
+                  ],
                   const Spacer(),
                 ],
               ))

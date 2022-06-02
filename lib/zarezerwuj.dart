@@ -14,7 +14,10 @@ class ZarezerwujStolik extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             verticalDirection: VerticalDirection.down,
             children: <Widget>[
-              MenuWidget(),
+              MenuWidget(
+                title: 'Zarezerwuj stolik',
+                subTitle: 'Subtitle',
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);

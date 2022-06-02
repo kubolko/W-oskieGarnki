@@ -1,6 +1,6 @@
-// To parse this JSON data, do
-//
-//     final dish = dishFromJson(jsonString);
+// // To parse this JSON data, do
+// //
+// //     final dish = dishFromJson(jsonString);
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -12,16 +12,17 @@ class Dish {
   List<String> ingredients;
   bool isRecommended;
   int weight;
+  String type;
   String? referenceId;
 
-  Dish(
-    this.dish, {
+  Dish(this.dish, {
     required this.comments,
     required this.description,
     required this.images,
     required this.ingredients,
     required this.isRecommended,
     required this.weight,
+    required this.type,
   });
 
   factory Dish.fromSnapshot(DocumentSnapshot snapshot) {
@@ -42,15 +43,17 @@ Dish _dishFromJson(Map<String, dynamic> json) {
   return Dish(
     json['dish'] as String,
     description: json['description'] as String,
-    comments: json['comments'] as List<String>,
+    comments: json['comments'].cast<String>() as List<String>,
     weight: json['weight'] as int,
-    images: json['images'] as List<String>,
-    ingredients: json['ingredients'] as List<String>,
+    images: json['images'].cast<String>() as List<String>,
+    ingredients: json['ingredients'].cast<String>() as List<String>,
     isRecommended: json['isRecommended'] as bool,
+    type: json['type'] as String,
   );
 }
 
-Map<String, dynamic> _DishToJson(Dish instance) => <String, dynamic>{
+Map<String, dynamic> _DishToJson(Dish instance) =>
+    <String, dynamic>{
       'comments': instance.comments,
       'description': instance.description,
       'dish': instance.dish,
@@ -58,4 +61,5 @@ Map<String, dynamic> _DishToJson(Dish instance) => <String, dynamic>{
       'ingredients': instance.ingredients,
       'isRecommended': instance.isRecommended,
       'weight': instance.weight,
+      'type': instance.type,
     };

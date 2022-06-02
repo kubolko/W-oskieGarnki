@@ -14,7 +14,10 @@ class Blog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             verticalDirection: VerticalDirection.down,
             children: <Widget>[
-              MenuWidget(),
+              MenuWidget(
+                title: 'Blog',
+                subTitle: 'Subtitle',
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);

@@ -39,6 +39,7 @@ dependencies:
   cloud_firestore: ^3.1.16
   carousel_slider: ^4.1.1
   http: ^0.13.4
+  rxdart: ^0.27.4
 
 
 dev_dependencies:

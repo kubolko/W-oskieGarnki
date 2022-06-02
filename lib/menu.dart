@@ -1,4 +1,46 @@
+// Copyright (c) 2021 Razeware LLC
+
+// Permission is hereby granted, free of charge, to any person
+// obtaining a copy of this software and associated documentation
+// files (the "Software"), to deal in the Software without
+// restriction, including without limitation the rights to use,
+// copy, modify, merge, publish, distribute, sublicense, and/or
+// sell copies of the Software, and to permit persons to whom
+// the Software is furnished to do so, subject to the following
+// conditions:
+
+// The above copyright notice and this permission notice shall be
+// included in all copies or substantial portions of the Software.
+
+// Notwithstanding the foregoing, you may not use, copy, modify,
+// merge, publish, distribute, sublicense, create a derivative work,
+// and/or sell copies of the Software in any work that is designed,
+// intended, or marketed for pedagogical or instructional purposes
+// related to programming, coding, application development, or
+// information technology. Permission for such use, copying,
+// modification, merger, publication, distribution, sublicensing,
+// creation of derivative works, or sale is expressly withheld.
+
+// This project and source code may use libraries or frameworks
+// that are released under various Open-Source licenses. Use of
+// those libraries and frameworks are governed by their own
+// individual licenses.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+// WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:woski_garnek/Models/Dish.dart';
+import 'package:woski_garnek/ViewModels/DataRepository.dart';
+import 'package:woski_garnek/Widgets/Footer.dart';
+import 'package:woski_garnek/Widgets/MenuCard.dart';
 
 import 'Widgets/MenuWidget.dart';
 
@@ -6,77 +48,126 @@ class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
 
   @override
-  _MenuPageState createState() => _MenuPageState();
+  _MenuState createState() => _MenuState();
 }
 
-class _MenuPageState extends State<Menu> {
-  static const List<String> strArr = [
-    "Makro elementy",
-    "Makro elementy",
-    "Makro elementy",
-    "Makro elementy"
-  ];
+class _MenuState extends State<Menu> {
+  final DataRepository repository = DataRepository();
+
+  // Future<List<Dish>> allDishes = DataRepository().getAllData();
+  // Future<List<Dish>> filteredDishes = [] as Future<List<Dish>>;
+  String activeFilter = 'All';
 
   @override
   Widget build(BuildContext context) {
+    return _buildMenu(context);
+  }
+
+  @override
+  Widget _buildMenu(BuildContext context) {
     return Scaffold(
       appBar: null,
-      body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            verticalDirection: VerticalDirection.down,
-            children: <Widget>[
-              MenuWidget(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment
-                    .center, //Center Row contents horizontally,
-                crossAxisAlignment:
-                    CrossAxisAlignment.center, //Center Row contents vertically,
-                children: [
-                  Column(
-                      mainAxisAlignment: MainAxisAlignment
-                          .start, //Center Row contents horizontally,
-                      crossAxisAlignment: CrossAxisAlignment
-                          .start, //Center Row contents vertically,
-                      children: [
-                        Text(
-                          "Food Name",
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 3,
-                          child: Expanded(
-                            child: Text(
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan consectetur lacus, vel suscipit mauris luctus sit amet. Quisque vel sem sed ligula volutpat imperdiet. Mauris nisl sapien, congue eu purus sit amet, accumsan rhoncus eros. Etiam at erat quis urna eleifend ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet libero ex. ",
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "Food Name",
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width / 3,
-                          child: Expanded(
-                            child: Text(
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan consectetur lacus, vel suscipit mauris luctus sit amet. Quisque vel sem sed ligula volutpat imperdiet. Mauris nisl sapien, congue eu purus sit amet, accumsan rhoncus eros. Etiam at erat quis urna eleifend ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet libero ex. ",
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 50),
-                        Row(children: [
-                          for (var i in strArr)
-                            Text(i + " | ",
-                                style: Theme.of(context).textTheme.bodySmall)
-                        ])
-                      ])
-                ],
+      body: Column(
+        children: [
+          MenuWidget(
+            title: 'Menu',
+            subTitle: 'Subtitle',
+          ),
+          const Text("Choose the dish you would like!"),
+          //Przystawki
+          // Zupy
+          // Danie pierwsze
+          // Danie drugie
+          // Pizze
+          // Napoje
+
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: Text(
+                    'Main Courses',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Main Course';
+                    });
+                  },
+                ),
               ),
-              Spacer(),
-            ]),
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: Text(
+                    'Przystawki',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Dessert';
+                    });
+                  },
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: Text(
+                    'Drinks',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Drinks';
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+          Flexible(child: myStreamBuilder(activeFilter))
+        ],
       ),
     );
+  }
+
+  Widget myStreamBuilder(String activeFilter) {
+    return StreamBuilder<QuerySnapshot>(
+        stream: repository.getFilteredStream(activeFilter),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const LinearProgressIndicator();
+
+          return _buildList(context, snapshot.data?.docs ?? []);
+        });
+  }
+
+  // void _addPet() {
+  //   showDialog<Widget>(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return const AddPetDialog();
+  //     },
+  //   );
+  // }
+
+  Widget _buildList(BuildContext context, List<DocumentSnapshot>? snapshot) {
+    final widgets =
+        snapshot!.map((data) => _buildListItem(context, data)).toList();
+    widgets.add(Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Footer(),
+    ));
+    return ListView(
+      padding: const EdgeInsets.only(top: 20.0),
+      children: widgets,
+    );
+  }
+
+  Widget _buildListItem(BuildContext context, DocumentSnapshot snapshot) {
+    final dish = Dish.fromSnapshot(snapshot);
+
+    return MenuCard(dish: dish);
   }
 }

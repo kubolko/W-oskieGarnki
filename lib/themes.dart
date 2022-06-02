@@ -14,7 +14,11 @@ class CustomTheme {
       // or simply save your changes to "hot reload" in a Flutter IDE).
       // Notice that the counter didn't reset back to zero; the application
       // is not restarted.
-      primaryColor: Color(0xFFF8B960),
+
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: Color(0xFFF8B960),
+        secondary: Color(0xFFF8B960),
+      ),
       // secondaryColor: Color()
       // fontFamily: 'Amertha',
       textTheme: const TextTheme(

@@ -26,15 +26,7 @@
 // those libraries and frameworks are governed by their own
 // individual licenses.
 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-// WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-// DEALINGS IN THE SOFTWARE.
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:woski_garnek/Models/Dish.dart';
 
@@ -46,29 +38,49 @@ class MenuCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: InkWell(
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child:
-                Text(dish.dish, style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(width: 100),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                dish.dish,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 2,
+                child: Text(dish.description,
+                    style: Theme.of(context).textTheme.bodySmall),
+              ),
+              SizedBox(height: 50),
+              _buildIngredients(context, dish),
+              SizedBox(height: 50),
+            ],
           ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child: Text(dish.description,
-                style: Theme.of(context).textTheme.bodySmall),
-          ),
+          SizedBox(width: 50),
+          SizedBox(
+              width: MediaQuery.of(context).size.width / 3,
+              child: CarouselSlider(
+                options: CarouselOptions(),
+                items: dish.images
+                    .map((item) => Center(
+                        child: Image.network(item,
+                            fit: BoxFit.fill,
+                            width: MediaQuery.of(context).size.width / 3)))
+                    .toList(),
+              )),
         ],
       ),
-      // onTap: () => Navigator.push<Widget>(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => PetRoom(pet: pet),
-      //   ),
-      // ),
-    ));
+    );
+  }
+
+  Widget _buildIngredients(BuildContext context, Dish dish) {
+    return Row(
+      children: dish.ingredients.map((dish) {
+        return Text('$dish, ', style: Theme.of(context).textTheme.bodySmall);
+      }).toList(),
+    );
   }
 }
