@@ -56,11 +56,11 @@ class _PolecaneState extends State<Polecane> {
   final boldStyle =
       const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold);
 
-  @override
   Widget build(BuildContext context) {
     return _buildPolecane(context);
   }
 
+  @override
   Widget _buildPolecane(BuildContext context) {
     return Scaffold(
       appBar: null,
@@ -72,7 +72,7 @@ class _PolecaneState extends State<Polecane> {
           ),
           Flexible(
             child: StreamBuilder<QuerySnapshot>(
-                stream: repository.getStream(),
+                stream: repository.getFilteredStream("Main Course"),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) return const LinearProgressIndicator();
 

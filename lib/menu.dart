@@ -48,40 +48,99 @@ class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
 
   @override
-  _MenuState createState() => _PMenuState();
+  _MenuState createState() => _MenuState();
 }
 
 class _MenuState extends State<Menu> {
   final DataRepository repository = DataRepository();
-  final boldStyle =
-      const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold);
+
+  // Future<List<Dish>> allDishes = DataRepository().getAllData();
+  // Future<List<Dish>> filteredDishes = [] as Future<List<Dish>>;
+  String activeFilter = 'All';
 
   @override
   Widget build(BuildContext context) {
     return _buildMenu(context);
   }
 
+  @override
   Widget _buildMenu(BuildContext context) {
     return Scaffold(
       appBar: null,
       body: Column(
         children: [
           MenuWidget(
-            title: 'Polecane',
+            title: 'Menu',
             subTitle: 'Subtitle',
           ),
-          Flexible(
-            child: StreamBuilder<QuerySnapshot>(
-                stream: repository.getStream(),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) return const LinearProgressIndicator();
+          const Text("Choose the dish you would like!"),
+          //Przystawki
+          // Zupy
+          // Danie pierwsze
+          // Danie drugie
+          // Pizze
+          // Napoje
 
-                  return _buildList(context, snapshot.data?.docs ?? []);
-                }),
+          Row(
+            children: [
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: Text(
+                    'Main Courses',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Main Course';
+                    });
+                  },
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: Text(
+                    'Przystawki',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Dessert';
+                    });
+                  },
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: Text(
+                    'Drinks',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Drinks';
+                    });
+                  },
+                ),
+              ),
+            ],
           ),
+          Flexible(child: myStreamBuilder(activeFilter))
         ],
       ),
     );
+  }
+
+  Widget myStreamBuilder(String activeFilter) {
+    return StreamBuilder<QuerySnapshot>(
+        stream: repository.getFilteredStream(activeFilter),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const LinearProgressIndicator();
+
+          return _buildList(context, snapshot.data?.docs ?? []);
+        });
   }
 
   // void _addPet() {

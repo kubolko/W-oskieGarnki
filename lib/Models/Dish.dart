@@ -12,16 +12,17 @@ class Dish {
   List<String> ingredients;
   bool isRecommended;
   int weight;
+  String type;
   String? referenceId;
 
-  Dish(
-    this.dish, {
+  Dish(this.dish, {
     required this.comments,
     required this.description,
     required this.images,
     required this.ingredients,
     required this.isRecommended,
     required this.weight,
+    required this.type,
   });
 
   factory Dish.fromSnapshot(DocumentSnapshot snapshot) {
@@ -47,10 +48,12 @@ Dish _dishFromJson(Map<String, dynamic> json) {
     images: json['images'].cast<String>() as List<String>,
     ingredients: json['ingredients'].cast<String>() as List<String>,
     isRecommended: json['isRecommended'] as bool,
+    type: json['type'] as String,
   );
 }
 
-Map<String, dynamic> _DishToJson(Dish instance) => <String, dynamic>{
+Map<String, dynamic> _DishToJson(Dish instance) =>
+    <String, dynamic>{
       'comments': instance.comments,
       'description': instance.description,
       'dish': instance.dish,
@@ -58,4 +61,5 @@ Map<String, dynamic> _DishToJson(Dish instance) => <String, dynamic>{
       'ingredients': instance.ingredients,
       'isRecommended': instance.isRecommended,
       'weight': instance.weight,
+      'type': instance.type,
     };
