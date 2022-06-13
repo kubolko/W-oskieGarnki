@@ -24,14 +24,14 @@
 import 'package:flutter/material.dart';
 import 'package:woski_garnek/Widgets/MenuWidget.dart';
 
-class PostView extends StatelessWidget {
+class PostWidget extends StatelessWidget {
   final String title;
   final String description;
   final String image;
   final String author;
   final String date;
 
-  const PostView(
+  const PostWidget(
       {Key? key,
       required this.title,
       required this.description,

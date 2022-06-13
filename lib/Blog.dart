@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:woski_garnek/Widgets/BlogCard.dart';
+import 'package:woski_garnek/Widgets/Post.dart';
 
+import 'Models/Posts.dart';
 import 'Widgets/MenuWidget.dart';
 
 class Blog extends StatefulWidget {
@@ -33,16 +35,25 @@ class _BlogState extends State<Blog> {
                   builder: (context, snapshot) {
                     // Decode the JSON
                     var newData = json.decode(snapshot.data.toString());
+                    List<Post> posts = postFromJson(snapshot.data.toString());
+
 
                     return ListView.builder(
                       itemBuilder: (BuildContext context, int index) {
-                        return BlogCard(
-                            image: newData[index]["image"],
-                            author: newData[index]["author"],
-                            description: newData[index]["description"],
-                            title: newData[index]["title"]);
-                        //]
-                        //));
+                        return InkWell(
+                          child:  BlogCard(
+                            image: posts[index].image,
+                            author: posts[index].author,
+                            description: posts[index].description,
+                            title: posts[index].title
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>  PostView(post: posts[index])),
+                            );
+                          },
+                        );
                       },
                       itemCount: newData == null ? 0 : newData.length,
                     );

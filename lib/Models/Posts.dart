@@ -1,13 +1,18 @@
 // To parse this JSON data, do
 //
-//     final posts = postsFromJson(jsonString);
+//     final post = postFromJson(jsonString);
 
 import 'dart:convert';
 
-class Posts {
-  Posts({
+List<Post> postFromJson(String str) => List<Post>.from(json.decode(str).map((x) => Post.fromJson(x)));
+
+String postToJson(List<Post> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+class Post {
+  Post({
     required this.title,
     required this.description,
+    required this.content,
     required this.image,
     required this.author,
     required this.date,
@@ -15,27 +20,26 @@ class Posts {
 
   String title;
   String description;
+  String content;
   String image;
   String author;
   String date;
 
-  factory Posts.fromRawJson(String str) => Posts.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory Posts.fromJson(Map<String, dynamic> json) => Posts(
-        title: json["title"],
-        description: json["description"],
-        image: json["image"],
-        author: json["author"],
-        date: json["date"],
-      );
+  factory Post.fromJson(Map<String, dynamic> json) => Post(
+    title: json["title"],
+    description: json["description"],
+    content: json["content"],
+    image: json["image"],
+    author: json["author"],
+    date: json["date"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "title": title,
-        "description": description,
-        "image": image,
-        "author": author,
-        "date": date,
-      };
+    "title": title,
+    "description": description,
+    "content": content,
+    "image": image,
+    "author": author,
+    "date": date,
+  };
 }
