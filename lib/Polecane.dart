@@ -72,7 +72,7 @@ class _PolecaneState extends State<Polecane> {
           ),
           Flexible(
             child: StreamBuilder<QuerySnapshot>(
-                stream: repository.getFilteredStream("Main Course"),
+                stream: repository.getFavorites(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) return const LinearProgressIndicator();
 

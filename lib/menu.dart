@@ -82,6 +82,7 @@ class _MenuState extends State<Menu> {
           // Napoje
 
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 margin: EdgeInsets.all(25),
@@ -100,7 +101,7 @@ class _MenuState extends State<Menu> {
               Container(
                 margin: EdgeInsets.all(25),
                 child: TextButton(
-                  child: Text(
+                  child: const Text(
                     'Przystawki',
                     style: TextStyle(fontSize: 20.0),
                   ),
@@ -125,6 +126,48 @@ class _MenuState extends State<Menu> {
                   },
                 ),
               ),
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: const Text(
+                    'Pizzas',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Pizza';
+                    });
+                  },
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(25),
+                child: TextButton(
+                  child: const Text(
+                    'Breakfasts',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Breakfast';
+                    });
+                  },
+                ),
+              ),
+              // Container(
+              //   margin: EdgeInsets.all(25),
+              //   child: TextButton(
+              //     child: const Text(
+              //       'Przystawki',
+              //       style: TextStyle(fontSize: 20.0),
+              //     ),
+              //     onPressed: () {
+              //       setState(() {
+              //         activeFilter = 'Dessert';
+              //       });
+              //     },
+              //   ),
+              // ),
             ],
           ),
           Flexible(child: myStreamBuilder(activeFilter))

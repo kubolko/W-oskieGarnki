@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:woski_garnek/Polecane.dart';
-import 'package:woski_garnek/blog.dart';
 import 'package:woski_garnek/homepage.dart';
 import 'package:woski_garnek/kontakt.dart';
 import 'package:woski_garnek/menu.dart';
 import 'package:woski_garnek/themes.dart';
 import 'package:woski_garnek/zarezerwuj.dart';
 
+import '../Blog.dart';
 import '../lokalizacja.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -190,7 +190,7 @@ class MenuWidget extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Blog()),
+                          MaterialPageRoute(builder: (context) => Blog()),
                         );
                       },
                       child: Text('Blog'),
@@ -202,7 +202,7 @@ class MenuWidget extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Blog()),
+                          MaterialPageRoute(builder: (context) => Blog()),
                         );
                       },
                       child: Text('Blog',

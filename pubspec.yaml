@@ -40,6 +40,7 @@ dependencies:
   carousel_slider: ^4.1.1
   http: ^0.13.4
   rxdart: ^0.27.4
+  flutter_widget_from_html: ^0.8.5
 
 
 dev_dependencies:
@@ -80,6 +81,7 @@ flutter:
     - Images/Lokalizacja.png
     - Images/StronaGlowna.png
     - Images/Chef.png
+    - StaticData/BlogPosts.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

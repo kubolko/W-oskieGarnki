@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:woski_garnek/Models/Dish.dart';
 
 class DataRepository {
@@ -10,48 +9,40 @@ class DataRepository {
     return collection.snapshots();
   }
 
-  Future<List<Dish>> getAllData() async {
-    List<Dish> dishes = [];
-
-    collection.get().then((value) {
-      for (var element in value.docs) {
-        final dish = Dish.fromSnapshot(element);
-        dishes.add(dish);
-      }
-    });
-
-    return dishes;
-  }
-
   Stream<QuerySnapshot> getFilteredStream(String type) {
-    return collection.where("type", isEqualTo: type).snapshots();
-  }
-
-  Future filterDishes(String type) async {
-    List<Dish> unsorted = await getAllData();
-    List<Dish> sorted = [];
     if (type == 'All') {
-      sorted = unsorted;
+      return collection.snapshots();
     } else {
-      for (var dish in unsorted) {
-        if (dish.type == type) {
-          sorted.add(dish);
-        }
-      }
+      return collection.where('type', isEqualTo: type).snapshots();
     }
-    debugPrint(sorted.toString());
-    return sorted;
   }
 
-  Future<DocumentReference> addPet(Dish dish) {
+  Stream<QuerySnapshot> getFavorites() {
+    return collection.where('isRecommended', isEqualTo: true).snapshots();
+  }
+
+  Future<DocumentReference> addDish(Dish dish) {
     return collection.add(dish.toJson());
   }
 
-  void updatePet(Dish dish) async {
+  void updateDish(Dish dish) async {
     await collection.doc(dish.referenceId).update(dish.toJson());
   }
 
   void deleteDish(Dish dish) async {
     await collection.doc(dish.referenceId).delete();
   }
+
+// Future<List<Post>> fetchPosts(BuildContext context) async {
+//   final response = await DefaultAssetBundle.of(context)
+//       .loadString('lib/StaticData/BlogPosts.json');
+//
+//   if (response.isNotEmpty) {
+//     List responseList = BlogPosts.fromRawJson(response).posts;
+//     return responseList.map((data) => Post.fromJson(data)).toList();
+//   } else {
+//     // If that call was not successful, throw an error.
+//     throw Exception('Failed to load post');
+//   }
+// }
 }

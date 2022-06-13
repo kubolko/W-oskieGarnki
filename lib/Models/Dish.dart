@@ -15,7 +15,8 @@ class Dish {
   String type;
   String? referenceId;
 
-  Dish(this.dish, {
+  Dish(
+    this.dish, {
     required this.comments,
     required this.description,
     required this.images,
@@ -52,8 +53,7 @@ Dish _dishFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _DishToJson(Dish instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _DishToJson(Dish instance) => <String, dynamic>{
       'comments': instance.comments,
       'description': instance.description,
       'dish': instance.dish,
