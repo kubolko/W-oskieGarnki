@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:woski_garnek/Widgets/BlogCard.dart';
-import 'package:woski_garnek/Widgets/Post.dart';
+import 'package:woski_garnek/Widgets/PostView.dart';
 
 import 'Models/Posts.dart';
 import 'Widgets/MenuWidget.dart';
