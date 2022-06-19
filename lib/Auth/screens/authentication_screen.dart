@@ -27,31 +27,26 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
             children: [
               const Text(
-                "We'll send an SMS with a verification code...",
+                "Wpisz numer telefonu, aby potwierdzić rezerwację",
                 style: TextStyle(fontSize: 22),
               ),
               const SizedBox(height: 15),
-              EasyContainer(
-                elevation: 0,
-                borderRadius: 10,
-                color: Colors.transparent,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: MediaQuery.of(context).size.width * 0.3,
                 child: Form(
+
                   key: _formKey,
                   child: IntlPhoneField(
-                    autofocus: true,
+                    autofocus: false,
                     invalidNumberMessage: 'Invalid Phone Number!',
                     textAlignVertical: TextAlignVertical.center,
                     style: const TextStyle(fontSize: 25),
                     onChanged: (phone) => phoneNumber = phone.completeNumber,
-                    initialCountryCode: 'IN',
+                    initialCountryCode: 'PL',
                     flagsButtonPadding: const EdgeInsets.only(right: 10),
                     showDropdownIcon: false,
                     keyboardType: TextInputType.phone,
@@ -59,29 +54,30 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                 ),
               ),
               const SizedBox(height: 15),
-              EasyContainer(
-                width: double.infinity,
-                onTap: () async {
-                  if (isNullOrBlank(phoneNumber) ||
-                      !_formKey.currentState!.validate()) {
-                    showSnackBar('Please enter a valid phone number!');
-                  } else {
-                    Navigator.pushNamed(
-                      context,
-                      VerifyPhoneNumberScreen.id,
-                      arguments: phoneNumber,
-                    );
-                  }
-                },
-                child: const Text(
-                  'Verify',
-                  style: TextStyle(fontSize: 18),
+              Container(
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                  child: const Text(
+                    'Zarezerwuj',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () async {
+                    if (isNullOrBlank(phoneNumber) ||
+                        !_formKey.currentState!.validate()) {
+                      showSnackBar('Wpisz poprawny numer telefonu!');
+                    } else {
+                      Navigator.pushNamed(
+                        context,
+                        VerifyPhoneNumberScreen.id,
+                        arguments: phoneNumber,
+                      );
+                    }
+                  },
                 ),
-              ),
+                margin: const EdgeInsets.only(top: 20.0),
+              )
             ],
-          ),
-        ),
-      ),
-    );
+          );
   }
 }

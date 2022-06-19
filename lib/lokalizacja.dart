@@ -43,7 +43,7 @@ class Lokalizacja extends StatelessWidget {
                         width: MediaQuery.of(context).size.width / 3,
                         child: Expanded(
                           child: Text(
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan consectetur lacus, vel suscipit mauris luctus sit amet. Quisque vel sem sed ligula volutpat imperdiet. Mauris nisl sapien, congue eu purus sit amet, accumsan rhoncus eros. Etiam at erat quis urna eleifend ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet libero ex. ",
+                            "Włoskie Garnki to lokal usytuowany w idealnej lokalizacji w gdańskim Brzeźnie, pozwalającej poczuć niesamowity klimat przytulnej, neapolitańskiej dzielnicy. Odległość 500 metrów od plaży i bliskość hoteli Kawka oraz von Biberstein tworzą z niej świetne miejsce także dla turystów w sezonie letnim. Zapraszamy na ulicę Sezamkową 13 już dziś!",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),

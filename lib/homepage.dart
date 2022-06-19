@@ -35,14 +35,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    'Buon giorno!',
+                    'Strona główna:',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width / 3,
                     child: Expanded(
                       child: Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan consectetur lacus, vel suscipit mauris luctus sit amet. Quisque vel sem sed ligula volutpat imperdiet. Mauris nisl sapien, congue eu purus sit amet, accumsan rhoncus eros. Etiam at erat quis urna eleifend ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet libero ex. ",
+                        "Witaj we Włoskich Garnkach! Możliwe, że jesteś tu by znaleźć więcej informacji na temat naszej restauracji, ale mamy nadzieję, że zatrzymamy Cię tu na dłużej. Oprócz karty dań oraz systemu rezerwacji miejsc znajdziesz tu także polecane przez nas dania, blog prowadzony przez naszych mistrzów kuchni oraz filmy z ich oryginalnymi, włoskimi przepisami dzięki którym będziesz mógł/mogła zasmakować niektórych z oferowanych przez Włoskie Garnki doskonale dobranych dań. Nowe przepisy publikujemy we wtorki co dwa tygodnie, a już dziś zapraszamy na nasz blog po film o tradycyjnym weneckim tiramisu! \n Buon Appetito!",
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),

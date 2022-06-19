@@ -27,7 +27,7 @@ class Kontakt extends StatelessWidget {
                     CrossAxisAlignment.center, //Center Row contents vertically,
                 children: [
                   Image.asset(
-                    'Images/Lokalizacja.png',
+                    'Images/Contact.jpg',
                     width: MediaQuery.of(context).size.width / 4,
                   ),
                   SizedBox(width: 150),
@@ -36,14 +36,14 @@ class Kontakt extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Buon giorno!',
+                        'Zapraszamy do kontaktu',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width / 3,
                         child: Expanded(
                           child: Text(
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan consectetur lacus, vel suscipit mauris luctus sit amet. Quisque vel sem sed ligula volutpat imperdiet. Mauris nisl sapien, congue eu purus sit amet, accumsan rhoncus eros. Etiam at erat quis urna eleifend ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet libero ex. ",
+                            "Włoskie Garnki \n 80-506 Gdańsk Brzeźno \n Sezamkowa 13 \n Telefon: 11 14 20 666 \n włoskiegarnki@garnek.pl",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),

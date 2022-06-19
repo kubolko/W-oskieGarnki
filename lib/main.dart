@@ -69,7 +69,6 @@ class _MainApp extends StatelessWidget {
         title: 'Włoskie Garnki! 🍝',
         scaffoldMessengerKey: Globals.scaffoldMessengerKey,
         theme: CustomTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
         onGenerateRoute: RouteGenerator.generateRoute,
         initialRoute: MyHomePage.id,
       ),

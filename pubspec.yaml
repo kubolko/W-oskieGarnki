@@ -48,7 +48,8 @@ dependencies:
   pinput: ^2.2.11
   table_calendar: ^3.0.6
   intl: ^0.17.0
-  validate: ^1.7.0
+  form_validation: ^2.1.0+5
+  numberpicker: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,7 @@ flutter:
     - Images/Lokalizacja.png
     - Images/StronaGlowna.png
     - Images/Chef.png
+    - Images/Contact.jpg
     - StaticData/BlogPosts.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

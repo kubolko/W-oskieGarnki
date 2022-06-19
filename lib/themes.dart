@@ -16,8 +16,8 @@ class CustomTheme {
       // is not restarted.
 
       colorScheme: ColorScheme.fromSwatch().copyWith(
-        primary: Color(0xFFF8B960),
-        secondary: Color(0xFFF8B960),
+        primary: const Color(0xFFF8B960),
+        secondary:  const Color(0xFFA10412),
       ),
       // secondaryColor: Color()
       // fontFamily: 'Amertha',

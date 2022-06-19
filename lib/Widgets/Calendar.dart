@@ -85,13 +85,10 @@ class _CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('TableCalendar - Events'),
-      ),
-      body: Column(
+    return  Column(
         children: [
           TableCalendar<Event>(
+            locale: 'pl_PL',
             firstDay: kFirstDay,
             lastDay: kLastDay,
             focusedDay: _focusedDay,
@@ -138,7 +135,7 @@ class _CalendarState extends State<Calendar> {
                       ),
                       child: ListTile(
                         onTap: () => print('${value[index]}'),
-                        title: Text('${value[index]}'),
+                        title: Text('${value[index]}', style: Theme.of(context).textTheme.labelLarge),
                       ),
                     );
                   },
@@ -147,7 +144,6 @@ class _CalendarState extends State<Calendar> {
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 }

@@ -111,7 +111,7 @@ class MenuWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Calendar()),
+                            builder: (context) => ZarezerwujStolik()),
                       );                      // Navigator.pushNamedAndRemoveUntil(
                       //   context,
                       //   AuthenticationScreen.id,
@@ -129,7 +129,7 @@ class MenuWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>  Calendar()),
+                            builder: (context) =>  ZarezerwujStolik()),
                       );
                     },
                     child: Text('Zarezerwuj stolik',

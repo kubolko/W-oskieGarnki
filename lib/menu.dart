@@ -75,12 +75,7 @@ class _MenuState extends State<Menu> {
             subTitle: 'Co tydzień wprowadzamy inne menu, więc jeśli Ci się coś spodoba, pośpiesz się!',
           ),
           const Text("Wybierz typ dania"),
-          //Przystawki
-          // Zupy
-          // Danie pierwsze
-          // Danie drugie
-          // Pizze
-          // Napoje
+
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
