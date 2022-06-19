@@ -8,6 +8,8 @@ import 'Models/Posts.dart';
 import 'Widgets/MenuWidget.dart';
 
 class Blog extends StatefulWidget {
+  static const id = 'Blog';
+
   @override
   _BlogState createState() => _BlogState();
 }
@@ -23,7 +25,7 @@ class _BlogState extends State<Blog> {
             // crossAxisAlignment:
             //     CrossAxisAlignment.center, //Center Row contents vertically,
             children: [
-              MenuWidget(title: 'Blog', subTitle: 'Subtitle'),
+              MenuWidget(title: 'Blog', subTitle: 'Poznaj nas od kuchni!'),
               Text(
                 "Witaj na naszym blogu, znajdziesz tutaj niesamowite, proste i smaczne przepisy kuchni włoskiej.",
                 style: Theme.of(context).textTheme.labelLarge,
@@ -34,18 +36,15 @@ class _BlogState extends State<Blog> {
                       .loadString('StaticData/BlogPosts.json'),
                   builder: (context, snapshot) {
                     // Decode the JSON
-                    var newData = json.decode(snapshot.data.toString());
                     List<Post> posts = postFromJson(snapshot.data.toString());
 
 
                     return ListView.builder(
                       itemBuilder: (BuildContext context, int index) {
+                        if (!snapshot.hasData) return const LinearProgressIndicator();
                         return InkWell(
                           child:  BlogCard(
-                            image: posts[index].image,
-                            author: posts[index].author,
-                            description: posts[index].description,
-                            title: posts[index].title
+                           post: posts[index],
                           ),
                           onTap: () {
                             Navigator.push(
@@ -55,7 +54,7 @@ class _BlogState extends State<Blog> {
                           },
                         );
                       },
-                      itemCount: newData == null ? 0 : newData.length,
+                      itemCount: posts == [] ? 0 : posts.length,
                     );
                   },
                 ),

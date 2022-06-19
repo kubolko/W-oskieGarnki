@@ -44,7 +44,7 @@ class PostWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        MenuWidget(title: title, subTitle: ""),
+        MenuWidget(title: title, subTitle: title),
         Text(
           description,
           style: Theme.of(context).textTheme.bodyLarge,

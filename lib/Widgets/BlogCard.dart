@@ -23,18 +23,17 @@
 
 import 'package:flutter/material.dart';
 
-class BlogCard extends StatelessWidget {
-  final String image;
-  final String title;
-  final String author;
-  final String description;
+import '../Models/Posts.dart';
+import 'PostView.dart';
 
-  BlogCard(
+class BlogCard extends StatelessWidget {
+
+
+  final Post post;
+
+  const BlogCard(
       {Key? key,
-      required this.image,
-      required this.author,
-      required this.description,
-      required this.title})
+      required this.post})
       : super(key: key);
 
   @override
@@ -53,7 +52,7 @@ class BlogCard extends StatelessWidget {
             color: Colors.white,
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: NetworkImage(image),
+              image: NetworkImage(post.image),
             ),
           ),
         ),
@@ -64,8 +63,8 @@ class BlogCard extends StatelessWidget {
           children: [
             SizedBox(
               width: MediaQuery.of(context).size.width / 2,
-              child: Text(title,
-                  style: TextStyle(
+              child: Text(post.title,
+                  style: const TextStyle(
                       fontFamily: 'Amertha',
                       fontSize: 50,
                       fontWeight: FontWeight.normal,
@@ -73,7 +72,7 @@ class BlogCard extends StatelessWidget {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width / 2,
-              child: Text(description, maxLines: 2),
+              child: Text(post.description, maxLines: 2),
             ),
             SizedBox(height: 50),
           ],
@@ -92,7 +91,9 @@ class BlogCard extends StatelessWidget {
                           bottomRight: Radius.circular(20.0),
                         ),
                         side: BorderSide(color: Colors.black)))),
-            onPressed: () => null),
+            onPressed: () =>    Navigator.push(
+              context, MaterialPageRoute(builder: (context) =>  PostView(post: post)),
+            )),
       ],
     ));
   }

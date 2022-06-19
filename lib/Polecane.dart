@@ -45,6 +45,7 @@ import 'package:woski_garnek/Widgets/MenuCard.dart';
 import 'Widgets/MenuWidget.dart';
 
 class Polecane extends StatefulWidget {
+  static const id = 'Polecane';
   const Polecane({Key? key}) : super(key: key);
 
   @override
@@ -56,6 +57,7 @@ class _PolecaneState extends State<Polecane> {
   final boldStyle =
       const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold);
 
+  @override
   Widget build(BuildContext context) {
     return _buildPolecane(context);
   }
@@ -68,7 +70,7 @@ class _PolecaneState extends State<Polecane> {
         children: [
           MenuWidget(
             title: 'Polecane',
-            subTitle: 'Subtitle',
+            subTitle: 'Te dania są naprawdę dobre!',
           ),
           Flexible(
             child: StreamBuilder<QuerySnapshot>(

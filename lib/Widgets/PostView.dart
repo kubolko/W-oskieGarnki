@@ -18,12 +18,16 @@ class PostView extends StatelessWidget {
     return Column(
       children: <Widget>[
         MenuWidget(title: post.title, subTitle: ""),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 450,
-          child: HtmlWidget(post.content),
-        ),
-      ],
+    Expanded(
+    flex: 1,
+    child:
+    Material(
+    type: MaterialType.transparency,
+    child: SingleChildScrollView(
+    scrollDirection: Axis.vertical,//.horizontal
+    child:  SizedBox(width:  MediaQuery.of(context).size.width / 2 ,child: HtmlWidget(post.content))
+    ),
+    ))],
     );
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:woski_garnek/Widgets/MenuWidget.dart';
 
 class MyHomePage extends StatefulWidget {
+  static const id = 'HomePage';
+
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -15,8 +17,8 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: null,
         body: Column(children: <Widget>[
           MenuWidget(
-            title: "Strona główna",
-            subTitle: 'Subtitle',
+            title: "Włoskie Garnki",
+            subTitle: 'Nowoczena, włoska kuchnia w tradycyjnym wydaniu',
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,

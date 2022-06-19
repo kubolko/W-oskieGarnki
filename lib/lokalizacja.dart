@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'Widgets/MenuWidget.dart';
 
 class Lokalizacja extends StatelessWidget {
+  static const id = 'Lokalizacja';
   const Lokalizacja({Key? key}) : super(key: key);
 
   @override
@@ -16,14 +17,9 @@ class Lokalizacja extends StatelessWidget {
             children: <Widget>[
               MenuWidget(
                 title: 'Lokalizacja',
-                subTitle: 'Subtitle',
+                subTitle: 'Blisko Twojego Domu!',
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text('Go back!'),
-              ),
+             const SizedBox(height: 125),
               Row(
                 mainAxisAlignment: MainAxisAlignment
                     .center, //Center Row contents horizontally,

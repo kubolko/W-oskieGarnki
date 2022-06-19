@@ -45,6 +45,7 @@ import 'package:woski_garnek/Widgets/MenuCard.dart';
 import 'Widgets/MenuWidget.dart';
 
 class Menu extends StatefulWidget {
+  static const id = 'Menu';
   const Menu({Key? key}) : super(key: key);
 
   @override
@@ -71,9 +72,9 @@ class _MenuState extends State<Menu> {
         children: [
           MenuWidget(
             title: 'Menu',
-            subTitle: 'Subtitle',
+            subTitle: 'Co tydzień wprowadzamy inne menu, więc jeśli Ci się coś spodoba, pośpiesz się!',
           ),
-          const Text("Choose the dish you would like!"),
+          const Text("Wybierz typ dania"),
           //Przystawki
           // Zupy
           // Danie pierwsze
@@ -88,12 +89,12 @@ class _MenuState extends State<Menu> {
                 margin: EdgeInsets.all(25),
                 child: TextButton(
                   child: Text(
-                    'Main Courses',
+                    'Dania Główne',
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () {
                     setState(() {
-                      activeFilter = 'Main Course';
+                      activeFilter = 'Dania Główne';
                     });
                   },
                 ),
@@ -116,7 +117,7 @@ class _MenuState extends State<Menu> {
                 margin: EdgeInsets.all(25),
                 child: TextButton(
                   child: Text(
-                    'Drinks',
+                    'Napoje',
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () {
@@ -130,7 +131,7 @@ class _MenuState extends State<Menu> {
                 margin: EdgeInsets.all(25),
                 child: TextButton(
                   child: const Text(
-                    'Pizzas',
+                    'Pizza',
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () {
@@ -144,7 +145,7 @@ class _MenuState extends State<Menu> {
                 margin: EdgeInsets.all(25),
                 child: TextButton(
                   child: const Text(
-                    'Breakfasts',
+                    'Sniadania',
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () {

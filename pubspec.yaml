@@ -39,9 +39,16 @@ dependencies:
   cloud_firestore: ^3.1.16
   carousel_slider: ^4.1.1
   http: ^0.13.4
-  rxdart: ^0.27.4
   flutter_widget_from_html: ^0.8.5
-
+  firebase_auth: ^3.3.20
+  firebase_dynamic_links: ^4.2.6
+  easy_container: ^1.0.4
+  intl_phone_field: ^3.1.0
+  firebase_phone_auth_handler: ^1.0.4
+  pinput: ^2.2.11
+  table_calendar: ^3.0.6
+  intl: ^0.17.0
+  validate: ^1.7.0
 
 dev_dependencies:
   flutter_test:

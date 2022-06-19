@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'Widgets/MenuWidget.dart';
 
 class Kontakt extends StatelessWidget {
+  static const id = 'Kontakt';
   const Kontakt({Key? key}) : super(key: key);
 
   @override
@@ -16,14 +17,9 @@ class Kontakt extends StatelessWidget {
             children: <Widget>[
               MenuWidget(
                 title: 'Kontakt',
-                subTitle: 'Subtitle',
+                subTitle: 'Chętnie odpowiemy na Twoje pytania!',
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text('Go back!'),
-              ),
+              const SizedBox(height: 125),
               Row(
                 mainAxisAlignment: MainAxisAlignment
                     .center, //Center Row contents horizontally,
