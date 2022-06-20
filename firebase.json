@@ -8,7 +8,7 @@
   "hosting": {
     "public": "build/web",
     "ignore": [
-      "firebase.json",
+      "firebase.jsflutter build web --web-renderer html --releaseon",
       "**/.*",
       "**/node_modules/**"
     ],

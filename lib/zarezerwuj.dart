@@ -31,7 +31,7 @@ class ZarezerwujStolik extends StatelessWidget {
                     Column(
                       children: [
                         SizedBox(
-                            width: MediaQuery.of(context).size.width / 2.5,
+                            width: MediaQuery.of(context).size.width / 4,
                             height: MediaQuery.of(context).size.width / 1.5,
                             child: Calendar()),
                       ],

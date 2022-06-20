@@ -39,13 +39,12 @@ class Kontakt extends StatelessWidget {
                         'Zapraszamy do kontaktu',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width / 3,
-                        child: Expanded(
-                          child: Text(
-                            "Włoskie Garnki \n 80-506 Gdańsk Brzeźno \n Sezamkowa 13 \n Telefon: 11 14 20 666 \n włoskiegarnki@garnek.pl",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                        child: Text(
+                          "Kontakt: \n Włoskie Garnki \n 80-506 Gdańsk Brzeźno \n Sezamkowa 13 \n Telefon: 11 14 20 666 \n włoskiegarnki@garnek.pl",
+                          style: Theme.of(context).textTheme.bodySmall,
+                          // style: Theme.of(context).textTheme.headlineLarge,
                         ),
                       )
                     ],

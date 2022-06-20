@@ -53,7 +53,7 @@ class _ReservationFormState extends State<ReservationForm> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         SizedBox(
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: MediaQuery.of(context).size.width / 4,
           child: TextFormField(
             style: const TextStyle(
                 fontSize: 10,
@@ -81,7 +81,7 @@ class _ReservationFormState extends State<ReservationForm> {
           ),
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: MediaQuery.of(context).size.width / 4,
           child: TextFormField(
             style: const TextStyle(
                 fontSize: 10,
@@ -109,7 +109,7 @@ class _ReservationFormState extends State<ReservationForm> {
           ),
         ),
         SizedBox(
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: MediaQuery.of(context).size.width / 4,
           child: TextFormField(
             style: const TextStyle(
                 fontSize: 10,

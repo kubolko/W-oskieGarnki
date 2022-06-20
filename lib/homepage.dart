@@ -38,13 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Strona główna:',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width / 3,
-                    child: Expanded(
-                      child: Text(
-                        "Witaj we Włoskich Garnkach! Możliwe, że jesteś tu by znaleźć więcej informacji na temat naszej restauracji, ale mamy nadzieję, że zatrzymamy Cię tu na dłużej. Oprócz karty dań oraz systemu rezerwacji miejsc znajdziesz tu także polecane przez nas dania, blog prowadzony przez naszych mistrzów kuchni oraz filmy z ich oryginalnymi, włoskimi przepisami dzięki którym będziesz mógł/mogła zasmakować niektórych z oferowanych przez Włoskie Garnki doskonale dobranych dań. Nowe przepisy publikujemy we wtorki co dwa tygodnie, a już dziś zapraszamy na nasz blog po film o tradycyjnym weneckim tiramisu! \n Buon Appetito!",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
+                    child: Text(
+                    "Witaj we Włoskich Garnkach! Witaj we Włoskich Garnkach! Możliwe, że jesteś tu by znaleźć więcej informacji na temat naszej restauracji, ale mamy nadzieję, że zatrzymamy Cię tu na dłużej. Oprócz karty dań oraz systemu rezerwacji miejsc znajdziesz tu także polecane przez nas dania, blog prowadzony przez naszych mistrzów kuchni oraz filmy z ich oryginalnymi, włoskimi przepisami dzięki którym będziesz mógł/mogła zasmakować niektórych z oferowanych przez Włoskie Garnki doskonale dobranych dań. Nowe przepisy publikujemy we wtorki co dwa tygodnie, a już dziś zapraszamy na nasz blog po film o tradycyjnym weneckim tiramisu! Buon Appetito!",
+                     style: Theme.of(context).textTheme.bodySmall,
+                    // style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   )
                 ],

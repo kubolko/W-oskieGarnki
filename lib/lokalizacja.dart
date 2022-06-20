@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 import 'Widgets/MenuWidget.dart';
 
@@ -26,9 +27,11 @@ class Lokalizacja extends StatelessWidget {
                 crossAxisAlignment:
                     CrossAxisAlignment.center, //Center Row contents vertically,
                 children: [
-                  Image.asset(
-                    'Images/Lokalizacja.png',
-                    width: MediaQuery.of(context).size.width / 4,
+                  SimpleShadow(
+                    child: Image.asset(
+                      'Images/Lokalizacja.png',
+                      width: MediaQuery.of(context).size.width / 4,
+                    ),
                   ),
                   SizedBox(width: 150),
                   Column(
@@ -39,13 +42,12 @@ class Lokalizacja extends StatelessWidget {
                         'Buon giorno!',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width / 3,
-                        child: Expanded(
-                          child: Text(
-                            "Włoskie Garnki to lokal usytuowany w idealnej lokalizacji w gdańskim Brzeźnie, pozwalającej poczuć niesamowity klimat przytulnej, neapolitańskiej dzielnicy. Odległość 500 metrów od plaży i bliskość hoteli Kawka oraz von Biberstein tworzą z niej świetne miejsce także dla turystów w sezonie letnim. Zapraszamy na ulicę Sezamkową 13 już dziś!",
-                            style: Theme.of(context).textTheme.bodySmall,
-                          ),
+                        child: Text(
+                          "Włoskie Garnki to lokal usytuowany w idealnej lokalizacji w gdańskim Brzeźnie, pozwalającej poczuć niesamowity klimat przytulnej, neapolitańskiej dzielnicy. Odległość 500 metrów od plaży i bliskość hoteli Kawka oraz von Biberstein tworzą z niej świetne miejsce także dla turystów w sezonie letnim. Zapraszamy na ulicę Sezamkową 13 już dziś!",
+                          style: Theme.of(context).textTheme.bodySmall,
+                          // style: Theme.of(context).textTheme.headlineLarge,
                         ),
                       )
                     ],

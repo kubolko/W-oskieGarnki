@@ -52,6 +52,12 @@ class CustomTheme {
             fontWeight: FontWeight.normal,
             color: Colors.black),
       ),
+      pageTransitionsTheme: PageTransitionsTheme(
+        builders: <TargetPlatform, PageTransitionsBuilder>{
+          for (final targetValue in TargetPlatform.values)
+            targetValue: const _SlideLeftTransitionsBuilder(),
+        },
+      ),
     );
   }
 }
@@ -174,22 +180,22 @@ class CustomTheme {
 //     ),
 //   );
 // }
-//
-// class _SlideLeftTransitionsBuilder extends PageTransitionsBuilder {
-//   const _SlideLeftTransitionsBuilder();
-//
-//   @override
-//   Widget buildTransitions<T>(_, __, animation, ___, child) {
-//     return SlideTransition(
-//       position: CurvedAnimation(
-//         parent: animation,
-//         curve: Curves.easeIn,
-//         reverseCurve: Curves.easeOut,
-//       ).drive(Tween<Offset>(
-//         begin: const Offset(1, 0),
-//         end: const Offset(0, 0),
-//       )),
-//       child: child,
-//     );
-//   }
-// }
+
+class _SlideLeftTransitionsBuilder extends PageTransitionsBuilder {
+  const _SlideLeftTransitionsBuilder();
+
+  @override
+  Widget buildTransitions<T>(_, __, animation, ___, child) {
+    return SlideTransition(
+      position: CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeIn,
+        reverseCurve: Curves.easeOut,
+      ).drive(Tween<Offset>(
+        begin: const Offset(1, 0),
+        end: const Offset(0, 0),
+      )),
+      child: child,
+    );
+  }
+}
