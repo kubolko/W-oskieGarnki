@@ -132,13 +132,20 @@ class _ReservationFormState extends State<ReservationForm> {
           ),
         ),
         Text('Ile gości? : $_currentValue'),
+        const SizedBox(height: 15),
         NumberPicker(
+          selectedTextStyle: const TextStyle(
+    // fontFamily: 'Amertha',
+    fontSize: 42,
+    fontWeight: FontWeight.normal,
+    color: Color(0xFFF8B960)),
+          axis: Axis.horizontal,
           value: _currentValue,
           minValue: 0,
           maxValue: 10,
           onChanged: (value) => setState(() => _currentValue = value),
         ),
-
+          const SizedBox(height: 15),
         const AuthenticationScreen(),
         //
         // const Spacer(),

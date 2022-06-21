@@ -74,15 +74,15 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
           log(
             VerifyPhoneNumberScreen.id,
             msg: autoVerified
-                ? 'OTP was fetched automatically!'
-                : 'OTP was verified manually!',
+                ? 'OTP zostało wysłane automatiycznie!'
+                : 'OTP zostało zweryfikowane manualnie!',
           );
 
-          showSnackBar('Phone number verified successfully!');
+          showSnackBar('Numer telefonu zweryfikowany pomyślnie!');
 
           log(
             VerifyPhoneNumberScreen.id,
-            msg: 'Login Success UID: ${userCredential.user?.uid}',
+            msg: 'Nr rezerwacji: ${userCredential.user?.uid}',
           );
 
           Navigator.pushNamedAndRemoveUntil(
@@ -92,7 +92,7 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
           );
         },
         onLoginFailed: (authException) {
-          showSnackBar('Something went wrong!');
+          showSnackBar('Błąd!');
           log(VerifyPhoneNumberScreen.id, error: authException.message);
           // handle error further if needed
         },
@@ -101,20 +101,20 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
             appBar: AppBar(
               leadingWidth: 0,
               leading: const SizedBox.shrink(),
-              title: const Text('Verify Phone Number'),
+              title: const Text('Weryfikujemy Twój numer telefonu'),
               actions: [
                 if (controller.codeSent)
                   TextButton(
                     onPressed: controller.timerIsActive
                         ? null
                         : () async {
-                            log(VerifyPhoneNumberScreen.id, msg: 'Resend OTP');
+                            log(VerifyPhoneNumberScreen.id, msg: 'Wyślij jeszcze raz OTP');
                             await controller.sendOTP();
                           },
                     child: Text(
                       controller.timerIsActive
                           ? '${controller.timerCount.inSeconds}s'
-                          : 'Resend',
+                          : 'Wyślij kod jeszcze raz',
                       style: const TextStyle(color: Colors.blue, fontSize: 18),
                     ),
                   ),
@@ -127,7 +127,7 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
                     controller: scrollController,
                     children: [
                       Text(
-                        "We've sent an SMS with a verification code to ${widget.phoneNumber}",
+                        "Wysłaliśmy kod SMS na numer ${widget.phoneNumber}",
                         style: const TextStyle(fontSize: 25),
                       ),
                       const SizedBox(height: 10),
@@ -138,7 +138,7 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
                             CustomLoader(),
                             SizedBox(height: 50),
                             Text(
-                              'Listening for OTP',
+                              'Czekanie na OTP',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 25,
@@ -147,13 +147,13 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
                             ),
                             SizedBox(height: 15),
                             Divider(),
-                            Text('OR', textAlign: TextAlign.center),
+                            Text('LUB', textAlign: TextAlign.center),
                             Divider(),
                           ],
                         ),
                       const SizedBox(height: 15),
                       const Text(
-                        'Enter OTP',
+                        'Wpisz OTP',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
@@ -171,7 +171,7 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
                           );
                           // Incorrect OTP
                           if (!isValidOTP) {
-                            showSnackBar('The entered OTP is invalid!');
+                            showSnackBar('Błędny kod');
                           }
                         },
                       ),
@@ -185,7 +185,7 @@ class _VerifyPhoneNumberScreenState extends State<VerifyPhoneNumberScreen>
                       SizedBox(height: 50),
                       Center(
                         child: Text(
-                          'Sending OTP',
+                          'Wysyłanie OTP',
                           style: TextStyle(fontSize: 25),
                         ),
                       ),

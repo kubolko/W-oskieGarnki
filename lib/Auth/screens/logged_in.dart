@@ -1,10 +1,10 @@
 import 'package:easy_container/easy_container.dart';
 import 'package:firebase_phone_auth_handler/firebase_phone_auth_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:woski_garnek/homepage.dart';
 
 import '../utils/globals.dart';
 import '../utils/helpers.dart';
-import 'authentication_screen.dart';
 
 class LogedIn extends StatelessWidget {
   static const id = 'LogedInView';
@@ -27,7 +27,7 @@ class LogedIn extends StatelessWidget {
                 child: SizedBox(
                   width: double.infinity,
                   child: FittedBox(
-                    child: Text('Logged in user UID'),
+                    child: Text('Dziękujemy za rezerwację!'),
                   ),
                 ),
               ),
@@ -40,16 +40,16 @@ class LogedIn extends StatelessWidget {
               EasyContainer(
                 onTap: () async {
                   await FirebasePhoneAuthHandler.signOut(context);
-                  showSnackBar('Logged out successfully!');
+                  showSnackBar('Do zobaczenia!');
 
                   // ignore: use_build_context_synchronously
                   Navigator.pushNamedAndRemoveUntil(
                     context,
-                    AuthenticationScreen.id,
+                    MyHomePage.id,
                     (route) => false,
                   );
                 },
-                child: const Text('Logout'),
+                child: const Text('Powróć do menu'),
               ),
             ],
           ),
