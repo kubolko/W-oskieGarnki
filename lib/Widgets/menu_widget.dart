@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:woski_garnek/Polecane.dart';
+import 'package:woski_garnek/polecane.dart';
 import 'package:woski_garnek/homepage.dart';
 import 'package:woski_garnek/kontakt.dart';
 import 'package:woski_garnek/menu.dart';
 import 'package:woski_garnek/themes.dart';
 import 'package:woski_garnek/zarezerwuj.dart';
-
-import '../Auth/screens/authentication_screen.dart';
-import '../Blog.dart';
+import '../blog.dart';
 import '../lokalizacja.dart';
-import 'Calendar.dart';
 
 class MenuWidget extends StatelessWidget {
   MenuWidget({super.key, required this.title, required this.subTitle});
@@ -58,7 +55,7 @@ class MenuWidget extends StatelessWidget {
                             builder: (context) => const MyHomePage()),
                       );
                     },
-                    child: Text('Strona główna'),
+                    child: const Text('Strona główna'),
                   ),
                 ],
                 if (title != "Strona główna") ...[
@@ -86,7 +83,7 @@ class MenuWidget extends StatelessWidget {
                             builder: (context) => const Polecane()),
                       );
                     },
-                    child: Text('Polecane'),
+                    child: const Text('Polecane'),
                   ),
                 ],
                 if (title != "Polecane") ...[
@@ -111,7 +108,7 @@ class MenuWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ZarezerwujStolik()),
+                            builder: (context) => const ZarezerwujStolik()),
                       );                      // Navigator.pushNamedAndRemoveUntil(
                       //   context,
                       //   AuthenticationScreen.id,
@@ -119,7 +116,7 @@ class MenuWidget extends StatelessWidget {
                       // );
 
                     },
-                    child: Text('Zarezerwuj stolik'),
+                    child: const Text('Zarezerwuj stolik'),
                   ),
                 ],
                 if (title != "Zarezerwuj stolik") ...[
@@ -129,7 +126,7 @@ class MenuWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>  ZarezerwujStolik()),
+                            builder: (context) =>  const ZarezerwujStolik()),
                       );
                     },
                     child: Text('Zarezerwuj stolik',
@@ -146,7 +143,7 @@ class MenuWidget extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => const Menu()),
                       );
                     },
-                    child: Text('Menu'),
+                    child: const Text('Menu'),
                   ),
                 ],
                 if (title != "Menu") ...[
@@ -173,7 +170,7 @@ class MenuWidget extends StatelessWidget {
                             builder: (context) => const Lokalizacja()),
                       );
                     },
-                    child: Text('Lokalizacja'),
+                    child: const Text('Lokalizacja'),
                   ),
                 ],
                 if (title != "Lokalizacja") ...[
@@ -197,10 +194,10 @@ class MenuWidget extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Blog()),
+                        MaterialPageRoute(builder: (context) => const Blog()),
                       );
                     },
-                    child: Text('Blog'),
+                    child: const Text('Blog'),
                   ),
                 ],
                 if (title != "Blog") ...[
@@ -209,7 +206,7 @@ class MenuWidget extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Blog()),
+                        MaterialPageRoute(builder: (context) => const Blog()),
                       );
                     },
                     child: Text('Blog',
@@ -227,7 +224,7 @@ class MenuWidget extends StatelessWidget {
                             builder: (context) => const Kontakt()),
                       );
                     },
-                    child: Text('Kontakt'),
+                    child: const Text('Kontakt'),
                   ),
                 ],
                 if (title != "Kontakt") ...[

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Widgets/MenuWidget.dart';
+import 'package:woski_garnek/Widgets/menu_widget.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
-import '../Models/Posts.dart';
+import '../Models/posts.dart';
 
 class PostView extends StatelessWidget {
 

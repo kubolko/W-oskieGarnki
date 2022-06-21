@@ -1,12 +1,11 @@
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/globals.dart';
 import '../widgets/custom_loader.dart';
 import 'authentication_screen.dart';
-import 'LogedIn.dart';
+import 'logged_in.dart';
 
 class SplashScreen extends StatefulWidget {
   static const id = 'SplashScreen';

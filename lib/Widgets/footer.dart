@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
+  const Footer({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,7 +56,7 @@ class Footer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   verticalDirection: VerticalDirection.down,
                   children: [
-                    Text("Eventy",
+                    const Text("Eventy",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -65,19 +67,19 @@ class Footer extends StatelessWidget {
                       height: 1.0,
                       color: Colors.white,
                     ),
-                    Text("Catering",
+                    const Text("Catering",
                         style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Malgun',
                             fontWeight: FontWeight.normal,
                             color: Colors.white)),
-                    Text("Rezerwacja lokalu",
+                    const Text("Rezerwacja lokalu",
                         style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Malgun',
                             fontWeight: FontWeight.normal,
                             color: Colors.white)),
-                    Text("Regulamin",
+                    const Text("Regulamin",
                         style: TextStyle(
                             fontSize: 20,
                             fontFamily: 'Malgun',
@@ -93,7 +95,7 @@ class Footer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   verticalDirection: VerticalDirection.down,
                   children: [
-                    Text("Współpraca",
+                    const Text("Współpraca",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -104,25 +106,25 @@ class Footer extends StatelessWidget {
                       height: 1.0,
                       color: Colors.white,
                     ),
-                    Text("Zostań naszym kucharzem",
+                    const Text("Zostań naszym kucharzem",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Malgun',
                             color: Colors.white)),
-                    Text("Zostań dostawcą",
+                    const Text("Zostań dostawcą",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Malgun',
                             color: Colors.white)),
-                    Text("Zostań kelnerem",
+                    const Text("Zostań kelnerem",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
                             fontFamily: 'Malgun',
                             color: Colors.white)),
-                    Text("Regulamin",
+                    const Text("Regulamin",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
@@ -134,35 +136,35 @@ class Footer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   verticalDirection: VerticalDirection.down,
                   children: [
-                    Text("Włoskie Garnki",
-                        style: const TextStyle(
+                    const Text("Włoskie Garnki",
+                        style: TextStyle(
                             fontFamily: "Amertha",
                             fontWeight: FontWeight.normal,
                             color: Color(0xffF8B960))),
-                    Text("+ 48 997 213 700",
-                        style: const TextStyle(
+                    const Text("+ 48 997 213 700",
+                        style: TextStyle(
                             fontFamily: "Malgun",
                             fontWeight: FontWeight.bold,
                             color: Color(0xfffbfaf1))),
-                    Text("wloskiegarnki@gmail.com",
-                        style: const TextStyle(
+                    const Text("wloskiegarnki@gmail.com",
+                        style: TextStyle(
                             fontFamily: "Malgun",
                             fontWeight: FontWeight.normal,
                             color: Color(0xfffbfaf1))),
-                    Text("ul niewiadoma 15/8 80-020",
-                        style: const TextStyle(
+                    const Text("ul niewiadoma 15/8 80-020",
+                        style: TextStyle(
                             fontFamily: "Malgun",
                             fontWeight: FontWeight.normal,
                             color: Color(0xfffbfaf1))),
-                    Text("Znajdziesz nas na:"),
+                    const Text("Znajdziesz nas na:"),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         verticalDirection: VerticalDirection.down,
                         children: [
-                          Text("IG"),
-                          Text("FB"),
-                          Text("YT"),
-                          Text("TikTok"),
+                          const Text("IG"),
+                          const Text("FB"),
+                          const Text("YT"),
+                          const Text("TikTok"),
                         ])
                   ]),
               SizedBox(width: MediaQuery.of(context).size.width / 18),

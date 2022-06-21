@@ -3,10 +3,9 @@
 
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Blog.dart';
-import 'package:woski_garnek/Polecane.dart';
+import 'package:woski_garnek/blog.dart';
+import 'package:woski_garnek/polecane.dart';
 import 'package:woski_garnek/homepage.dart';
 import 'package:woski_garnek/kontakt.dart';
 import 'package:woski_garnek/lokalizacja.dart';
@@ -14,7 +13,7 @@ import 'package:woski_garnek/menu.dart';
 import 'package:woski_garnek/zarezerwuj.dart';
 
 import '../screens/authentication_screen.dart';
-import '../screens/LogedIn.dart';
+import '../screens/logged_in.dart';
 import '../screens/splash_screen.dart';
 import '../screens/verify_phone_number_screen.dart';
 
@@ -34,7 +33,7 @@ class RouteGenerator {
       case LogedIn.id:
         return _route(const LogedIn());
       case Blog.id:
-        return _route(Blog());
+        return _route(const Blog());
       case MyHomePage.id:
         return _route(const MyHomePage());
       case Kontakt.id:

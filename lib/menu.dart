@@ -37,12 +37,12 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Models/Dish.dart';
-import 'package:woski_garnek/ViewModels/DataRepository.dart';
-import 'package:woski_garnek/Widgets/Footer.dart';
-import 'package:woski_garnek/Widgets/MenuCard.dart';
+import 'package:woski_garnek/Models/dish.dart';
+import 'package:woski_garnek/ViewModels/data_repository.dart';
+import 'package:woski_garnek/Widgets/footer.dart';
+import 'package:woski_garnek/Widgets/menu_card.dart';
 
-import 'Widgets/MenuWidget.dart';
+import 'Widgets/menu_widget.dart';
 
 class Menu extends StatefulWidget {
   static const id = 'Menu';
@@ -64,7 +64,6 @@ class _MenuState extends State<Menu> {
     return _buildMenu(context);
   }
 
-  @override
   Widget _buildMenu(BuildContext context) {
     return Scaffold(
       appBar: null,
@@ -81,21 +80,49 @@ class _MenuState extends State<Menu> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                margin: EdgeInsets.all(25),
+                margin: const EdgeInsets.all(25),
                 child: TextButton(
-                  child: Text(
-                    'Dania Główne',
+                  child: const Text(
+                    'Danie pierwsze',
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () {
                     setState(() {
-                      activeFilter = 'Dania Główne';
+                      activeFilter = 'Danie pierwsze';
                     });
                   },
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(25),
+                margin: const EdgeInsets.all(25),
+                child: TextButton(
+                  child: const Text(
+                    'Danie drugie',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Danie drugie';
+                    });
+                  },
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(25),
+                child: TextButton(
+                  child: const Text(
+                    'Zupy',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      activeFilter = 'Zupy';
+                    });
+                  },
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(25),
                 child: TextButton(
                   child: const Text(
                     'Przystawki',
@@ -103,27 +130,13 @@ class _MenuState extends State<Menu> {
                   ),
                   onPressed: () {
                     setState(() {
-                      activeFilter = 'Dessert';
+                      activeFilter = 'Przystawki';
                     });
                   },
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(25),
-                child: TextButton(
-                  child: Text(
-                    'Napoje',
-                    style: TextStyle(fontSize: 20.0),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      activeFilter = 'Drinks';
-                    });
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(25),
+                margin: const EdgeInsets.all(25),
                 child: TextButton(
                   child: const Text(
                     'Pizza',
@@ -137,33 +150,20 @@ class _MenuState extends State<Menu> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(25),
+                margin: const EdgeInsets.all(25),
                 child: TextButton(
                   child: const Text(
-                    'Sniadania',
+                    'Napoje',
                     style: TextStyle(fontSize: 20.0),
                   ),
                   onPressed: () {
                     setState(() {
-                      activeFilter = 'Breakfast';
+                      activeFilter = 'Drinks';
                     });
                   },
                 ),
               ),
-              // Container(
-              //   margin: EdgeInsets.all(25),
-              //   child: TextButton(
-              //     child: const Text(
-              //       'Przystawki',
-              //       style: TextStyle(fontSize: 20.0),
-              //     ),
-              //     onPressed: () {
-              //       setState(() {
-              //         activeFilter = 'Dessert';
-              //       });
-              //     },
-              //   ),
-              // ),
+
             ],
           ),
           Flexible(child: myStreamBuilder(activeFilter))
@@ -194,9 +194,9 @@ class _MenuState extends State<Menu> {
   Widget _buildList(BuildContext context, List<DocumentSnapshot>? snapshot) {
     final widgets =
         snapshot!.map((data) => _buildListItem(context, data)).toList();
-    widgets.add(Padding(
-      padding: const EdgeInsets.only(top: 20.0),
-      child: Footer(),
+    widgets.add(const Padding(
+      padding: EdgeInsets.only(top: 20.0),
+      child:  Footer(),
     ));
     return ListView(
       padding: const EdgeInsets.only(top: 20.0),

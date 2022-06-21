@@ -1,7 +1,3 @@
-
-
-import 'package:easy_container/easy_container.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:woski_garnek/Auth/screens/verify_phone_number_screen.dart';
@@ -28,6 +24,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Text(
                 "Wpisz numer telefonu, aby potwierdzić rezerwację",
@@ -35,16 +32,16 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
               ),
               const SizedBox(height: 15),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.height * 0.15,
+                width: MediaQuery.of(context).size.width * 0.2,
                 child: Form(
 
                   key: _formKey,
                   child: IntlPhoneField(
                     autofocus: false,
-                    invalidNumberMessage: 'Invalid Phone Number!',
+                    invalidNumberMessage: 'Niepoprawny numer telefonu!!',
                     textAlignVertical: TextAlignVertical.center,
-                    style: const TextStyle(fontSize: 25),
+                    style: Theme.of(context).textTheme.bodyLarge,
                     onChanged: (phone) => phoneNumber = phone.completeNumber,
                     initialCountryCode: 'PL',
                     flagsButtonPadding: const EdgeInsets.only(right: 10),
@@ -53,7 +50,6 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
               Container(
                 width: 200,
                 height: 50,

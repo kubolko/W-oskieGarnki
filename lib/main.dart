@@ -45,7 +45,6 @@ import 'package:flutter/material.dart';
 import 'package:woski_garnek/homepage.dart';
 import 'package:woski_garnek/themes.dart';
 import 'Auth/firebase_options.dart';
-import 'Auth/utils/app_theme.dart';
 import 'Auth/utils/globals.dart';
 import 'Auth/utils/route_generator.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -53,11 +52,11 @@ import 'package:intl/date_symbol_data_local.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  initializeDateFormatting().then((_) => runApp(_MainApp()));
+  initializeDateFormatting().then((_) => runApp(const MainApp()));
 }
 
-class _MainApp extends StatelessWidget {
-  const _MainApp({
+class MainApp extends StatelessWidget {
+  const MainApp({
     Key? key,
   }) : super(key: key);
 

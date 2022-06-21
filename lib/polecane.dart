@@ -37,12 +37,12 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Models/Dish.dart';
-import 'package:woski_garnek/ViewModels/DataRepository.dart';
-import 'package:woski_garnek/Widgets/Footer.dart';
-import 'package:woski_garnek/Widgets/MenuCard.dart';
+import 'package:woski_garnek/Models/dish.dart';
+import 'package:woski_garnek/ViewModels/data_repository.dart';
+import 'package:woski_garnek/Widgets/footer.dart';
+import 'package:woski_garnek/Widgets/menu_card.dart';
 
-import 'Widgets/MenuWidget.dart';
+import 'Widgets/menu_widget.dart';
 
 class Polecane extends StatefulWidget {
   static const id = 'Polecane';
@@ -62,7 +62,6 @@ class _PolecaneState extends State<Polecane> {
     return _buildPolecane(context);
   }
 
-  @override
   Widget _buildPolecane(BuildContext context) {
     return Scaffold(
       appBar: null,
@@ -98,8 +97,8 @@ class _PolecaneState extends State<Polecane> {
   Widget _buildList(BuildContext context, List<DocumentSnapshot>? snapshot) {
     final widgets =
         snapshot!.map((data) => _buildListItem(context, data)).toList();
-    widgets.add(Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+    widgets.add(const Padding(
+      padding: EdgeInsets.only(top: 20.0),
       child: Footer(),
     ));
     return ListView(

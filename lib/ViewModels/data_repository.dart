@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:woski_garnek/Models/Dish.dart';
+import 'package:woski_garnek/Models/dish.dart';
 
 class DataRepository {
   final CollectionReference collection =

@@ -1,14 +1,16 @@
-import 'dart:convert';
+
 
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Widgets/BlogCard.dart';
-import 'package:woski_garnek/Widgets/PostView.dart';
+import 'package:woski_garnek/Widgets/blog_card.dart';
+import 'package:woski_garnek/Widgets/post_view.dart';
 
-import 'Models/Posts.dart';
-import 'Widgets/MenuWidget.dart';
+import 'Models/posts.dart';
+import 'Widgets/menu_widget.dart';
 
 class Blog extends StatefulWidget {
   static const id = 'Blog';
+
+  const Blog({Key? key}) : super(key: key);
 
   @override
   _BlogState createState() => _BlogState();

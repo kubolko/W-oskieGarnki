@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validation/form_validation.dart';
 import 'package:numberpicker/numberpicker.dart';
@@ -11,10 +10,6 @@ class ReservationForm extends StatefulWidget {
   State<StatefulWidget> createState() => _ReservationFormState();
 }
 
-class _LoginData {
-  String email = '';
-  String password = '';
-}
 
 class _ReservationFormState extends State<ReservationForm> {
   int _currentValue = 3;

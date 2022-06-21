@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Widgets/MenuWidget.dart';
+import 'Widgets/menu_widget.dart';
 
 class Kontakt extends StatelessWidget {
   static const id = 'Kontakt';
@@ -30,7 +30,7 @@ class Kontakt extends StatelessWidget {
                     'Images/Contact.jpg',
                     width: MediaQuery.of(context).size.width / 4,
                   ),
-                  SizedBox(width: 150),
+                  const SizedBox(width: 150),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -51,7 +51,7 @@ class Kontakt extends StatelessWidget {
                   )
                 ],
               ),
-              Spacer(),
+              const Spacer(),
             ]),
       ),
     );

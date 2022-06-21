@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Widgets/MenuWidget.dart';
+import 'package:woski_garnek/Widgets/menu_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   static const id = 'HomePage';
@@ -23,12 +23,16 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                'Images/StronaGlowna.png',
+              SizedBox(
                 width: MediaQuery.of(context).size.width / 2,
-                fit: BoxFit.fitHeight,
+                height: MediaQuery.of(context).size.height*0.85,
+                child: Image.asset(
+                  'Images/StronaGlowna.png',
+                  fit: BoxFit.cover,
+                  // height: MediaQuery.of(context).size.height
+                ),
               ),
-              SizedBox(width: 50),
+              const SizedBox(width: 50),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -41,9 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 3,
                     child: Text(
-                    "Witaj we Włoskich Garnkach! Witaj we Włoskich Garnkach! Możliwe, że jesteś tu by znaleźć więcej informacji na temat naszej restauracji, ale mamy nadzieję, że zatrzymamy Cię tu na dłużej. Oprócz karty dań oraz systemu rezerwacji miejsc znajdziesz tu także polecane przez nas dania, blog prowadzony przez naszych mistrzów kuchni oraz filmy z ich oryginalnymi, włoskimi przepisami dzięki którym będziesz mógł/mogła zasmakować niektórych z oferowanych przez Włoskie Garnki doskonale dobranych dań. Nowe przepisy publikujemy we wtorki co dwa tygodnie, a już dziś zapraszamy na nasz blog po film o tradycyjnym weneckim tiramisu! Buon Appetito!",
-                     style: Theme.of(context).textTheme.bodySmall,
-                    // style: Theme.of(context).textTheme.headlineLarge,
+                      "Witaj we Włoskich Garnkach! \n Możliwe, że jesteś tu by znaleźć więcej informacji na temat naszej restauracji, ale mamy nadzieję, że zatrzymamy Cię tu na dłużej. Oprócz karty dań oraz systemu rezerwacji miejsc znajdziesz tu także polecane przez nas dania, blog prowadzony przez naszych mistrzów kuchni oraz filmy z ich oryginalnymi, włoskimi przepisami dzięki którym będziesz mógł/mogła zasmakować niektórych z oferowanych przez Włoskie Garnki doskonale dobranych dań. Nowe przepisy publikujemy we wtorki co dwa tygodnie, a już dziś zapraszamy na nasz blog po film o tradycyjnym weneckim tiramisu! Buon Appetito!",
+                      style: Theme.of(context).textTheme.bodySmall,
+                      // style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   )
                 ],

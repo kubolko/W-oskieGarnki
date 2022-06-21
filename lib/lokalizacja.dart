@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
-import 'Widgets/MenuWidget.dart';
+import 'Widgets/menu_widget.dart';
 
 class Lokalizacja extends StatelessWidget {
   static const id = 'Lokalizacja';
@@ -33,7 +33,7 @@ class Lokalizacja extends StatelessWidget {
                       width: MediaQuery.of(context).size.width / 4,
                     ),
                   ),
-                  SizedBox(width: 150),
+                  const SizedBox(width: 150),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -54,7 +54,7 @@ class Lokalizacja extends StatelessWidget {
                   )
                 ],
               ),
-              Spacer(),
+              const Spacer(),
             ]),
       ),
     );

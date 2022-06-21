@@ -34,7 +34,7 @@ class Dish {
 
   factory Dish.fromJson(Map<String, dynamic> json) => _dishFromJson(json);
 
-  Map<String, dynamic> toJson() => _DishToJson(this);
+  Map<String, dynamic> toJson() => _dishToJson(this);
 
   @override
   String toString() => "Dish<$dish>";
@@ -53,7 +53,7 @@ Dish _dishFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _DishToJson(Dish instance) => <String, dynamic>{
+Map<String, dynamic> _dishToJson(Dish instance) => <String, dynamic>{
       'comments': instance.comments,
       'description': instance.description,
       'dish': instance.dish,

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:table_calendar/table_calendar.dart';
-import 'package:woski_garnek/Auth/screens/authentication_screen.dart';
-import 'package:woski_garnek/Widgets/Reservationform.dart';
-import 'Auth/screens/splash_screen.dart';
-import 'Widgets/Calendar.dart';
-import 'Widgets/MenuWidget.dart';
+import 'package:woski_garnek/Widgets/reservation_form.dart';
+import 'Widgets/calendar.dart';
+import 'Widgets/menu_widget.dart';
 
 class ZarezerwujStolik extends StatelessWidget {
   static const id = 'ZarezerwujStolik';
@@ -24,6 +21,9 @@ class ZarezerwujStolik extends StatelessWidget {
                 title: 'Zarezerwuj stolik',
                 subTitle: 'Serdecznie zapraszamy do rezerwacji internetowej!',
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height*0.1,
+              ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,11 +33,11 @@ class ZarezerwujStolik extends StatelessWidget {
                         SizedBox(
                             width: MediaQuery.of(context).size.width / 4,
                             height: MediaQuery.of(context).size.width / 1.5,
-                            child: Calendar()),
+                            child: const Calendar()),
                       ],
                     ),
                     const SizedBox(width: 20),
-                        ReservationForm(),
+                        const ReservationForm(),
 
 
 

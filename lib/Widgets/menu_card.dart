@@ -28,12 +28,12 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Models/Dish.dart';
+import 'package:woski_garnek/Models/dish.dart';
 
 class MenuCard extends StatelessWidget {
   final Dish dish;
 
-  MenuCard({Key? key, required this.dish}) : super(key: key);
+  const MenuCard({Key? key, required this.dish}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,18 +48,19 @@ class MenuCard extends StatelessWidget {
               Text(
                 dish.dish,
                 style: Theme.of(context).textTheme.titleMedium,
+                maxLines: 1,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width / 2,
                 child: Text(dish.description,
                     style: Theme.of(context).textTheme.bodySmall),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               _buildIngredients(context, dish),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
             ],
           ),
-          SizedBox(width: 50),
+          const SizedBox(width: 50),
           SizedBox(
               width: MediaQuery.of(context).size.width / 3,
               child: CarouselSlider(

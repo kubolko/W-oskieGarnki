@@ -22,7 +22,7 @@
 // creation of derivative works, or sale is expressly withheld.
 
 import 'package:flutter/material.dart';
-import 'package:woski_garnek/Widgets/MenuWidget.dart';
+import 'package:woski_garnek/Widgets/menu_widget.dart';
 
 class PostWidget extends StatelessWidget {
   final String title;

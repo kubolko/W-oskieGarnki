@@ -23,8 +23,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../Models/Posts.dart';
-import 'PostView.dart';
+import '../Models/posts.dart';
+import 'post_view.dart';
 
 class BlogCard extends StatelessWidget {
 
@@ -74,7 +74,7 @@ class BlogCard extends StatelessWidget {
               width: MediaQuery.of(context).size.width / 2,
               child: Text(post.description, maxLines: 2),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
           ],
         ),
         TextButton(
@@ -82,7 +82,7 @@ class BlogCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelLarge),
             style: ButtonStyle(
                 padding:
-                    MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
+                    MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(15)),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     const RoundedRectangleBorder(

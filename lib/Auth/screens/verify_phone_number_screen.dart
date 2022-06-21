@@ -1,15 +1,13 @@
 
 
-import 'dart:developer';
 
 import 'package:firebase_phone_auth_handler/firebase_phone_auth_handler.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/helpers.dart';
 import '../widgets/custom_loader.dart';
 import '../widgets/pin_input_field.dart';
-import 'LogedIn.dart';
+import 'logged_in.dart';
 
 class VerifyPhoneNumberScreen extends StatefulWidget {
   static const id = 'VerifyPhoneNumberScreen';

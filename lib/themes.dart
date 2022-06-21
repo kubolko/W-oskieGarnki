@@ -23,7 +23,7 @@ class CustomTheme {
       // fontFamily: 'Amertha',
       textTheme: const TextTheme(
         titleLarge: TextStyle(
-            // fontFamily: 'Amertha',
+           // fontFamily: 'Amertha',
             fontSize: 69,
             fontWeight: FontWeight.normal,
             color: Color(0xFFF8B960)),
@@ -33,22 +33,24 @@ class CustomTheme {
             fontWeight: FontWeight.normal,
             color: Color(0xFFA10412)),
         bodyMedium: TextStyle(
-            fontSize: 24, fontWeight: FontWeight.normal, fontFamily: 'Malgun'),
+//         fontSize: 24,
+            fontWeight: FontWeight.normal,
+            fontFamily: 'Malgun'),
         titleSmall: TextStyle(
-            fontSize: 10, fontWeight: FontWeight.bold, fontFamily: 'Malgun'),
+            fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'Malgun'),
         headlineMedium: TextStyle(
             fontSize: 20,
-            fontFamily: 'Malgun',
+             fontFamily: 'Malgun',
             fontWeight: FontWeight.normal,
             color: Colors.white),
         labelLarge: TextStyle(
             fontSize: 10,
-            fontFamily: 'Malgun',
+             fontFamily: 'Malgun',
             fontWeight: FontWeight.normal,
             color: Colors.black),
         bodySmall: TextStyle(
             fontSize: 18,
-            fontFamily: 'Malgun',
+             fontFamily: 'Malgun',
             fontWeight: FontWeight.normal,
             color: Colors.black),
       ),
